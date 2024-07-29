@@ -17,21 +17,24 @@ def index(request):
     })
 
 
-def add(request):
+def add(request):    
     if request.method == "POST":
         f = NewTaskForm(request.POST)
         if f.is_valid():
             value = f.cleaned_data['the_charfield']
             todos.append(value)
             return render(request, 'app01/add.html', {
+                'referer': request.headers['referer'],
                 'form': NewTaskForm(),
                 'status': value+' - added successfully'
             })
         else:
             return render(request, 'app01/add.html', {
+                'referer': request.headers['referer'],
                 'form':f
             })
 
     return render(request, 'app01/add.html', {
+        'referer': request.headers['referer'],
         'form': NewTaskForm()
     });

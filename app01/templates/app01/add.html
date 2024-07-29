@@ -4,6 +4,7 @@
     {% csrf_token %}
     <h6>{{status}}</h6>
     <h5>add new task</h5>
+    {{referer}}<br>
     {{form}}
     <input type="submit" value="add">
 </form>
