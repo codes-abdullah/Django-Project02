@@ -1,12 +1,10 @@
-{%load static %}
-<!DOCTYPE html>
-
-<html>
-<head>
-<link href="{% static 'app01/style.css' %}" rel="stylesheet"></link>
-    
-</head>
-<body>
-    <h1>index page</h1>
-</body>
-</html>
+{% extends "app01/layout.html" %}
+{% block body %}
+<h1>Tasks:</h1>
+    <ul>
+        {% for todo in todos %}
+        <li>{{todo}}</li>
+        {% endfor %}
+    </ul>
+<a href="{% url "tasks:add" %}">Add new task</a>
+{% endblock body %}

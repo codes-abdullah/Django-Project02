@@ -1,0 +1,10 @@
+{% extends "app01/layout.html" %}
+{% block body %}
+
+<form >
+    {% csrf_token %}
+    Add new task: <input type="text" name="todo">
+    <input type="submit" value="add">
+</form>
+<a href="{% url "tasks:index" %}">go home</a>
+{% endblock body %}
